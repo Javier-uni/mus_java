@@ -1,0 +1,27 @@
+nombre: Cálculo de Probabilidades en el Juego del Mus
+descripcion: >
+  Proyecto en Java cuyo objetivo es calcular las probabilidades de una jugada en el juego del Mus,
+  un juego de cartas por parejas con similitudes al póker. Analiza rondas como "grande" y "chica"
+  para estimar la probabilidad de victoria de cada jugador.
+
+autor: JPG
+fecha_inicio: 2025-07
+licencia: "..."
+open_source: true
+
+estructura:
+  src/main/mus:
+    - logic: "Lógica del juego y cálculos probabilísticos"
+    - model: "Representación de cartas, manos y baraja"
+    - test: "Tests unitarios y de integración"
+    - simulacion: "Simulación de partidas y estrategias"
+    - gui: "Interfaz gráfica (opcional)"
+
+tecnologias:
+  lenguaje: Java
+  version_jdk: "17+"
+  testing: JUnit
+
+contribuciones:
+  agradecidas: true
+  instrucciones: "Abre un issue o pull request con tu propuesta."

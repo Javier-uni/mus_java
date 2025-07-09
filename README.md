@@ -1,18 +1,12 @@
-## Getting Started
+# Cálculo de Probabilidades en el Juego del Mus
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Este repositorio contiene un proyecto en Java cuyo objetivo principal es **calcular las probabilidades de una jugada en el juego del Mus**, un tradicional juego de cartas por parejas con similitudes al póker.
 
-## Folder Structure
+## 🎯 Objetivo
 
-The workspace contains two folders by default, where:
+El proyecto pretende ofrecer herramientas estadísticas que permitan analizar jugadas en diferentes rondas del Mus (como "grande" o "chica"), con el fin de estimar las probabilidades de victoria de un jugador o pareja según las cartas repartidas.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## 🧠 Estructura del Proyecto
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+El código fuente está organizado según una arquitectura modular en el directorio `src/main/mus`:
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
