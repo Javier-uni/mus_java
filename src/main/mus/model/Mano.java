@@ -30,6 +30,54 @@ public class Mano {
         public void clear() {
             cartas.clear();
         }
-    
 
-}
+        public Carta getCarta(int index) {
+            if (index < 0 || index >= cartas.size()) {
+                throw new IndexOutOfBoundsException("Index out of bounds for cartas list");
+            }
+            return cartas.get(index);
+        }
+
+        public Carta removeCarta(Carta c) {
+            if (c == null) {
+                throw new IllegalArgumentException("Carta cannot be null");
+            }
+            if (!cartas.contains(c)) {
+                throw new IllegalArgumentException("Carta not found in mano");
+            }
+            cartas.remove(c);
+            return c;
+        }
+    
+        public Carta getCartaAlta() {
+            if (cartas.isEmpty()) {
+                throw new IllegalStateException("No hay cartas en la mano");
+            }
+            Carta cartaAlta = cartas.get(0);
+            for (Carta c : cartas) {
+                if (c.getNumero() != 3 && cartaAlta.getNumero() != 3) {
+                    if (c.getNumero() > cartaAlta.getNumero()) {
+                        cartaAlta = c;
+                    }
+                } else if (c.getNumero() == 3 && cartaAlta.getNumero() != 3) {
+                    cartaAlta = c;
+
+                }
+            }
+            return cartaAlta;
+        }
+
+
+        public Carta getCartaBaja() {
+            if (cartas.isEmpty()) {
+                throw new IllegalStateException("No hay cartas en la mano");
+            }
+            Carta cartaBaja = cartas.get(0);
+            for (Carta c : cartas) {
+                if (c.getNumero() < cartaBaja.getNumero()) {
+                    cartaBaja = c;
+                }
+            }
+            return cartaBaja;
+        }
+    }
