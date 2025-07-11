@@ -80,4 +80,29 @@ public class Mano {
             }
             return cartaBaja;
         }
+
+        public Mano ordenar() {
+            Mano manoOrdenada = new Mano();
+            List<Carta> cartasOrdenadas = new ArrayList<>(cartas);
+            cartasOrdenadas.sort((c2, c1) -> Integer.compare(c1.getNumero(), c2.getNumero()));
+            for (Carta c : cartasOrdenadas) {
+                manoOrdenada.addCarta(c);
+            }
+            return manoOrdenada;
+        }
+
+        public Mano normalizacion() {
+            Mano manoNormalizada = new Mano();
+            for (Carta c : cartas) {
+                if (c.getNumero() == 3) {
+                    c.setNumero(12); // Convertir reyes a 12
+                } else if (c.getNumero() == 2) {
+                    c.setNumero(1); // Convertir pitos a 1
+                }
+                manoNormalizada.addCarta(c);
+            }
+            return manoNormalizada;
+        }
     }
+
+

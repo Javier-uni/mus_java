@@ -1,7 +1,7 @@
 package main.mus.test;
 import main.mus.model.Baraja;
 import main.mus.model.Carta;
-import main.mus.model.Mano;
+//import main.mus.model.Mano;
 
 
 
