@@ -103,6 +103,15 @@ public class Mano {
             }
             return manoNormalizada;
         }
+
+
+        public Mano copia() {
+            Mano copia = new Mano();
+            for (Carta c : cartas) {
+                copia.addCarta(new Carta(c.getCartaString(),c.getNumero(), c.getPalo()));
+            }
+            return copia;
+        }
     }
 
 

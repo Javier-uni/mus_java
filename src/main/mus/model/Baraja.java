@@ -24,8 +24,16 @@ import java.util.List;
             return cartas;
         }
 
+        public Carta getCarta(int i){
+            return cartas.get(i);
+        }
+
         public void clear() {
             cartas.clear();
+        }
+
+        public int numCartas(){
+            return cartas.size();
         }
 
         public void iniciarBaraja() {
@@ -65,6 +73,34 @@ import java.util.List;
             }
             return barajaRestante;
         }
+
+        public void normalizarBaraja(){
+            for(Carta c: cartas){
+                if(c.getNumero() == 3){
+                    c.setNumero(12);
+                }
+                if(c.getNumero() == 2){
+                    c.setNumero(1);
+                }
+            }
+            
+        }
+        
+
+        public int numCartasIgual(Carta c){
+            int num = c.getNumero();
+            int resultado = 0;
+            for(Carta p: cartas){
+                if(p.getNumero() == num) {
+                    resultado++;
+                }
+            }
+
+            return resultado;
+
+        }
+
+
 
 
     }

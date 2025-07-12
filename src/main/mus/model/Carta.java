@@ -34,4 +34,15 @@ public class Carta {
             this.palo = palo;
         }
 
+        
+        public void normalizarCarta(){
+            if(numero == 3){
+                numero = 12;
+            }
+
+            if (numero == 2) {
+                numero = 1;    
+            }
+        }
+
 }

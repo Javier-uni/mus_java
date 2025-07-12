@@ -14,13 +14,21 @@ public class Grande {
 
 
 
-    public int comparacion(Mano mano1, Mano mano2) {
-        if (mano1 == null || mano2 == null) {
+    public int comparacion(Mano manoprimera, Mano manosegunda) {
+        if (manoprimera == null || manosegunda == null) {
             throw new IllegalArgumentException("Las manos no pueden ser nulas");
         }
+
+        Mano mano1 = manoprimera.copia();
+        Mano mano2 = manosegunda.copia();
+
+
+        //Revisar porque puede que lo cambie en un futuro
         if (mano1.getCartas().size() != 4 || mano2.getCartas().size() != 4) {
             throw new IllegalArgumentException("Cada mano debe tener exactamente 4 cartas");
         }
+
+
 
         for (int i = 0; i < 4; i++) {
             //Si no hay reyes pues la siguiente
@@ -49,11 +57,13 @@ public class Grande {
             }
             
             //Si estan igualdos se pasa a la siguiente carta, removiendo la mas alta
+            //MAL REVISAAAAAAAAAAAAAAR
             mano1.removeCarta(mano1.getCartaAlta());
             mano2.removeCarta(mano2.getCartaAlta());
 
         }
         return 0;
+        
     }
 
 }
