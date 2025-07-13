@@ -1,9 +1,12 @@
 package main.mus.auxiliar;
 
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 // import main.mus.combinatoria.combinatoria;
 import main.mus.model.Baraja;
-// import main.mus.model.Mano;
+import main.mus.model.Mano;
 import main.mus.model.Carta;;
 
 
@@ -24,6 +27,11 @@ public class matriz {
         this.matriz = matriz;
     }
 
+    public matriz(){
+        this.matriz = matriz;
+    }
+
+    
     
     
 
@@ -46,6 +54,10 @@ public class matriz {
         }
     }
 
+    public void llenar(){
+        rellenar(this.matriz);
+    }
+
 
     public int transforAuxiliar(int numero) {
         switch (numero) {
@@ -60,9 +72,31 @@ public class matriz {
         }
     }
 
+
+    public Mano getMano(int i){
+        Mano mano = new Mano();
+        for(int j = 0; j<4;j++){
+            Carta c = numToCarta(matriz[i][j]);//Posible fallo, probar matriz[j][i]
+            mano.addCarta(c);
+        }
+        return mano;
+    }
+
+    public Carta numToCarta(int i){
+        Carta c = new Carta(Integer.toString(i), i, "Copas");
+        return c;
+
+    }
+
     public static double combinatoria(int m, int n) {
-        double resultado = factorial(m)/(factorial(n)*factorial(m-n));
+        double resultado = 1;
+        int denominador = factorial(n);
+        for(int i = m; i>(m-n); i--){
+            resultado *= i;
+        }
+        resultado = resultado/denominador;
         return resultado;
+        
     }
 
 
@@ -84,5 +118,10 @@ public class matriz {
             }
         }
         return x;
+    }
+
+
+    public ArrayList<Carta> ManoToArray(Mano mano){
+        return new ArrayList<>(mano.getCartas());
     }
 }

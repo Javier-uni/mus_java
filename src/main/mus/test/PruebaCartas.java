@@ -17,7 +17,7 @@ public class PruebaCartas {
     public static void main(String[] args) {
         Mano manoseg = new Mano();
         Carta carta1 = new Carta("Rey",12,"Bastos");
-        Carta carta2 = new Carta("AS", 1, "Copas");
+        Carta carta2 = new Carta("As", 1, "Copas");
         manoseg.addCarta(carta1);
         manoseg.addCarta(carta1);
         manoseg.addCarta(carta2);
@@ -28,7 +28,7 @@ public class PruebaCartas {
         Grande grande = new Grande();
         int check = 0;
         double porcentaje = 0;
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < 10000; i++) {
             contador++;
             System.out.println(contador);
             Baraja baraja = new Baraja();
@@ -39,14 +39,15 @@ public class PruebaCartas {
             // Robar 4 cartas para la mano
             for (int j = 0; j < 4; j++) {
                 Carta carta = baraja.robarCarta();
+                baraja.addCarta(carta);
                 mano.addCarta(carta);
             }
             mano.normalizacion();
             mano.ordenar();
             
-            int resultado = grande.comparacion(mano, manoseg);
-
-            if (resultado == 1 || resultado == 0){
+            int resultado = grande.comparacionGrande(mano, manoseg);
+            
+            if (resultado == 1 ){
                 check++;
             }
             mano.clear();

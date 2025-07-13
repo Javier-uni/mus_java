@@ -95,7 +95,7 @@ public class Mano {
             Mano manoNormalizada = new Mano();
             for (Carta c : cartas) {
                 if (c.getNumero() == 3) {
-                    c.setNumero(12); // Convertir reyes a 12
+                    c.setNumero(12); // Convertir 3 (reyes) a 12
                 } else if (c.getNumero() == 2) {
                     c.setNumero(1); // Convertir pitos a 1
                 }

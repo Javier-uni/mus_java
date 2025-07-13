@@ -34,8 +34,61 @@ public class Carta {
             this.palo = palo;
         }
 
+        public void setCartaStringPlus(String cartaString){
+            switch (cartaString) {
+                case "1":
+                case "2":
+                    this.cartaString = "As";
+                
+                case "3":
+                case "12":
+                    this.cartaString = "Rey";
+                    
+            
+                default:
+                    this.cartaString = cartaString;
+            }
+        }
+
+
         
+
+        @Override
+        public int hashCode() {
+            final int prime = 31;
+            int result = 1;
+            result = prime * result + ((cartaString == null) ? 0 : cartaString.hashCode());
+            result = prime * result + numero;
+            result = prime * result + ((palo == null) ? 0 : palo.hashCode());
+            return result;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj)
+                return true;
+            if (obj == null)
+                return false;
+            if (getClass() != obj.getClass())
+                return false;
+            Carta other = (Carta) obj;
+            if (cartaString == null) {
+                if (other.cartaString != null)
+                    return false;
+            } else if (!cartaString.equals(other.cartaString))
+                return false;
+            if (numero != other.numero)
+                return false;
+            if (palo == null) {
+                if (other.palo != null)
+                    return false;
+            } else if (!palo.equals(other.palo))
+                return false;
+            return true;
+        }
+
         public void normalizarCarta(){
+            palo = null;
             if(numero == 3){
                 numero = 12;
             }
@@ -44,5 +97,7 @@ public class Carta {
                 numero = 1;    
             }
         }
+
+
 
 }

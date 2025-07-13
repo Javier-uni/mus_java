@@ -15,6 +15,7 @@ public class Grande {
 
 
     public int comparacion(Mano manoprimera, Mano manosegunda) {
+        //SE PUEDE REHACER CON NORMALIZAR MANO
         if (manoprimera == null || manosegunda == null) {
             throw new IllegalArgumentException("Las manos no pueden ser nulas");
         }
@@ -36,9 +37,19 @@ public class Grande {
              && (mano2.getCartaAlta().getNumero() != 3 || mano2.getCartaAlta().getNumero() != 12)) {
                 if (mano1.getCartaAlta().getNumero() > mano2.getCartaAlta().getNumero()) {
                     return 1; // mano1 gana
+                    
                 }
                 else if (mano1.getCartaAlta().getNumero() < mano2.getCartaAlta().getNumero()) {
                     return -1; // mano2 gana
+                }
+                else {//No hay reyes y tienen la misma carta
+                    if(mano1.getCartas().size() >1){
+                    mano1.removeCarta(mano1.getCartaAlta());
+                    mano2.removeCarta(mano2.getCartaAlta());
+                    }
+                    else {
+                        return 0;
+                    }
                 }
             }
 
@@ -57,13 +68,52 @@ public class Grande {
             }
             
             //Si estan igualdos se pasa a la siguiente carta, removiendo la mas alta
-            //MAL REVISAAAAAAAAAAAAAAR
             mano1.removeCarta(mano1.getCartaAlta());
             mano2.removeCarta(mano2.getCartaAlta());
 
         }
         return 0;
         
+    }
+
+
+    public int comparacionGrande(Mano manoprimera, Mano manosegunda){
+        if (manoprimera == null || manosegunda == null) {
+            throw new IllegalArgumentException("Las manos no pueden ser nulas");
+        }
+
+        Mano mano1 = manoprimera.copia();
+        Mano mano2 = manosegunda.copia();
+
+
+       
+        if (mano1.getCartas().size() != 4 || mano2.getCartas().size() != 4) {
+            throw new IllegalArgumentException("Cada mano debe tener exactamente 4 cartas");
+        }
+
+        for(int i = 0; i<4;i++){
+
+        if (mano1.getCartaAlta().getNumero() > mano2.getCartaAlta().getNumero()){
+            return 1;
+        }
+        
+        else if (mano1.getCartaAlta().getNumero() < mano2.getCartaAlta().getNumero()){
+            return -1;
+        }
+        
+
+        else {
+            if(mano1.getCartas().size() >1){
+                mano1.removeCarta(mano1.getCartaAlta());
+                mano2.removeCarta(mano2.getCartaAlta());
+                }
+             else {
+             return 0;
+                }
+            }
+
+        }
+        return 0;
     }
 
 }
